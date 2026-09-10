@@ -1,0 +1,58 @@
+"use client";
+import { useState } from "react";
+import { Anchor, ArrowRight, Award, Bell, BriefcaseBusiness, Check, ChevronRight, Compass, GraduationCap, Home, MapPin, MessageCircle, Search, Ship, Sparkles, UserRound } from "lucide-react";
+
+const paths = [
+  { title: "Marine Electrician", meta: "Skilled trade · 12–18 months", match: "94%", icon: Award, tone: "bg-[#dff1ea] text-[#0b5753]" },
+  { title: "Deck Operations", meta: "Entry pathway · 4–8 weeks", match: "89%", icon: Ship, tone: "bg-[#e6edf4] text-[#315d7a]" },
+  { title: "Port Logistics", meta: "Operations · 3–6 months", match: "85%", icon: BriefcaseBusiness, tone: "bg-[#f6ead6] text-[#8a6129]" },
+];
+const nav = [
+  { id: "home", label: "Home", icon: Home }, { id: "explore", label: "Explore", icon: Compass },
+  { id: "plan", label: "My Plan", icon: Check }, { id: "connect", label: "Connect", icon: MessageCircle },
+  { id: "profile", label: "Profile", icon: UserRound },
+];
+
+export default function HomePage() {
+  const [active, setActive] = useState("home");
+  const [saved, setSaved] = useState<string[]>([]);
+  return <main className="min-h-dvh bg-[#edf2f1] text-[#12312f]">
+    <header className="hidden border-b border-[#d8e3e0] bg-white/90 px-8 py-4 backdrop-blur md:block">
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <div className="flex items-center gap-3"><span className="grid size-11 place-items-center rounded-xl bg-[#d5a54b] text-[#083f3d]"><Anchor size={24} strokeWidth={2.6}/></span><div><p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#50716d]">Maritime</p><p className="text-lg font-bold">Pathways</p></div></div>
+        <nav className="flex items-center gap-8 text-sm font-semibold text-[#45635f]"><a href="#pathways">Explore pathways</a><a href="#how-it-works">How it works</a><a href="#partners">For partners</a><a href="#navigator" className="rounded-xl bg-[#0b5753] px-5 py-3 text-white">Open navigator</a></nav>
+      </div>
+    </header>
+    <section className="mx-auto grid max-w-7xl items-center gap-12 px-0 md:grid-cols-[1fr_430px] md:px-8 md:py-16 lg:gap-20">
+      <div className="hidden md:block">
+        <p className="text-sm font-bold uppercase tracking-[.18em] text-[#a3772f]">A career can begin at the water's edge</p>
+        <h1 className="mt-5 max-w-2xl text-6xl font-semibold leading-[1.02] tracking-[-.045em] text-[#083f3d]">Find your place in America’s maritime workforce.</h1>
+        <p className="mt-6 max-w-xl text-lg leading-8 text-[#526c68]">Discover maritime careers, understand the credentials you need, and connect with training providers, employers, mentors, and support along the way.</p>
+        <div className="mt-8 flex gap-3"><a href="#navigator" className="rounded-xl bg-[#d5a54b] px-6 py-3.5 font-bold text-[#12312f]">Explore your pathway</a><a href="#partners" className="rounded-xl border border-[#b9cac6] bg-white px-6 py-3.5 font-bold text-[#0b5753]">Become a partner</a></div>
+        <div className="mt-12 grid max-w-xl grid-cols-3 gap-4 border-t border-[#cfdcd9] pt-7"><div><p className="text-2xl font-bold text-[#0b5753]">One plan</p><p className="mt-1 text-sm text-[#657b77]">built around you</p></div><div><p className="text-2xl font-bold text-[#0b5753]">Real steps</p><p className="mt-1 text-sm text-[#657b77]">toward employment</p></div><div><p className="text-2xl font-bold text-[#0b5753]">Local help</p><p className="mt-1 text-sm text-[#657b77]">when you need it</p></div></div>
+      </div>
+      <div id="navigator" className="relative mx-auto min-h-dvh w-full max-w-[430px] overflow-hidden bg-[#f7f9f8] shadow-2xl md:min-h-[900px] md:rounded-[34px] md:border md:border-white/80">
+      <header className="bg-[#083f3d] px-5 pb-8 pt-5 text-white">
+        <div className="flex items-center justify-between"><div className="flex items-center gap-2.5"><span className="grid size-10 place-items-center rounded-xl bg-[#d5a54b] text-[#083f3d]"><Anchor size={23} strokeWidth={2.6}/></span><div><p className="text-[11px] font-bold uppercase tracking-[.19em] text-[#b6d4cd]">Maritime</p><p className="-mt-0.5 text-lg font-bold tracking-tight">Pathways</p></div></div><button aria-label="Notifications" className="relative grid size-10 place-items-center rounded-full bg-white/10"><Bell size={19}/><span className="absolute right-2.5 top-2 size-2 rounded-full bg-[#e3b65d]"/></button></div>
+        <p className="mt-7 text-sm text-[#b6d4cd]">Good afternoon, Alex</p><h1 className="mt-1 text-[29px] font-semibold leading-tight tracking-[-.03em]">Where will the water<br/>take you?</h1>
+        <button onClick={() => setActive("explore")} className="mt-5 flex w-full items-center rounded-2xl bg-white px-4 py-3.5 text-left text-sm text-[#6d7f7d] shadow-sm"><span className="flex items-center gap-3"><Search size={18}/>Search careers, training, opportunities</span></button>
+      </header>
+      <section className="-mt-3 rounded-t-[22px] bg-[#f7f9f8] px-5 pb-28 pt-6">
+        <div className="rounded-2xl border border-[#dde6e3] bg-white p-4 shadow-[0_8px_25px_rgba(18,49,47,.05)]">
+          <div className="flex items-start justify-between"><div><p className="text-xs font-bold uppercase tracking-[.12em] text-[#718682]">Your journey</p><h2 className="mt-1 text-lg font-bold">Pathway progress</h2></div><span className="rounded-full bg-[#e4f0ec] px-2.5 py-1 text-xs font-bold text-[#0b5753]">40%</span></div>
+          <div className="mt-4 flex items-center gap-1.5">{["Discover","Navigate","Connect","Enter","Advance"].map((step,i)=><div key={step} className="min-w-0 flex-1"><div className={`h-1.5 rounded-full ${i<2?"bg-[#d5a54b]":"bg-[#dfe7e5]"}`}/><p className={`mt-2 truncate text-[9px] font-bold ${i<2?"text-[#315b57]":"text-[#91a09d]"}`}>{step}</p></div>)}</div>
+          <button className="mt-4 flex w-full items-center justify-between rounded-xl bg-[#f3f6f5] px-3.5 py-3 text-sm font-semibold"><span className="flex items-center gap-2.5"><span className="grid size-7 place-items-center rounded-full bg-[#0b5753] text-white"><Check size={15}/></span>Complete your interest profile</span><ChevronRight size={17}/></button>
+        </div>
+        <div className="mt-7 flex items-end justify-between"><div><p className="text-xs font-bold uppercase tracking-[.12em] text-[#718682]">Recommended for you</p><h2 className="mt-1 text-xl font-bold tracking-tight">Explore your matches</h2></div><button onClick={()=>setActive("explore")} className="text-xs font-bold text-[#0b5753]">View all</button></div>
+        <div className="mt-3 space-y-3">{paths.map(({title,meta,match,icon:Icon,tone})=><article key={title} className="flex items-center gap-3 rounded-2xl border border-[#e1e8e6] bg-white p-3.5"><span className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone}`}><Icon size={21}/></span><div className="min-w-0 flex-1"><h3 className="truncate text-sm font-bold">{title}</h3><p className="mt-1 truncate text-[11px] text-[#71817e]">{meta}</p></div><button onClick={()=>setSaved(x=>x.includes(title)?x.filter(y=>y!==title):[...x,title])} className={`rounded-full px-2.5 py-1.5 text-[11px] font-bold ${saved.includes(title)?"bg-[#0b5753] text-white":"bg-[#eef4f2] text-[#0b5753]"}`}>{saved.includes(title)?"Saved":match}</button></article>)}</div>
+        <div className="mt-7 overflow-hidden rounded-2xl bg-[#123f49] p-4 text-white"><div className="flex items-center gap-2 text-[#e5bd6e]"><Sparkles size={17}/><p className="text-[11px] font-bold uppercase tracking-[.12em]">Next best step</p></div><h3 className="mt-2 text-lg font-bold">Talk with a pathway navigator</h3><p className="mt-1 text-xs leading-5 text-[#c4d7d9]">Get help comparing credentials, training options, and your fastest route forward.</p><button onClick={()=>setActive("connect")} className="mt-4 flex items-center gap-2 rounded-xl bg-[#d5a54b] px-4 py-2.5 text-xs font-bold text-[#12312f]">Connect with a navigator <ArrowRight size={15}/></button></div>
+        <div className="mt-7"><p className="text-xs font-bold uppercase tracking-[.12em] text-[#718682]">Near you</p><div className="mt-3 flex gap-3 rounded-2xl border border-[#e1e8e6] bg-white p-4"><span className="grid size-10 place-items-center rounded-xl bg-[#f6ead6] text-[#8a6129]"><GraduationCap size={20}/></span><div><h3 className="text-sm font-bold">Port Skills Open House</h3><p className="mt-1 flex items-center gap-1 text-[11px] text-[#71817e]"><MapPin size={12}/>Regional Maritime Training Center · Oct 12</p></div></div></div>
+      </section>
+      <nav className="fixed inset-x-0 bottom-0 z-10 mx-auto flex max-w-[430px] items-center justify-around border-t border-[#dfe7e5] bg-white/95 px-2 pb-[max(12px,env(safe-area-inset-bottom))] pt-2 backdrop-blur md:absolute md:rounded-b-[34px]">{nav.map(({id,label,icon:Icon})=><button key={id} onClick={()=>setActive(id)} className={`flex min-w-14 flex-col items-center gap-1 py-1 text-[10px] font-bold ${active===id?"text-[#0b5753]":"text-[#879693]"}`}><span className={`grid size-8 place-items-center rounded-xl ${active===id?"bg-[#e4f0ec]":""}`}><Icon size={18} strokeWidth={active===id?2.7:2}/></span>{label}</button>)}</nav>
+      </div>
+    </section>
+    <section id="how-it-works" className="hidden bg-[#083f3d] px-8 py-20 text-white md:block"><div className="mx-auto max-w-7xl"><p className="text-sm font-bold uppercase tracking-[.18em] text-[#e0b85f]">A clear route forward</p><h2 className="mt-3 text-4xl font-semibold tracking-tight">From curiosity to a maritime career.</h2><div className="mt-10 grid grid-cols-5 gap-5">{[["01","Discover","Explore work that fits your interests and strengths."],["02","Navigate","See the credentials and training each career requires."],["03","Connect","Meet navigators, mentors, schools, and employers."],["04","Enter","Apply, enroll, apprentice, or begin your first role."],["05","Advance","Track milestones and keep building your career."]].map(([n,t,d])=><article key={n} className="border-t border-white/25 pt-5"><p className="text-sm font-bold text-[#e0b85f]">{n}</p><h3 className="mt-4 text-xl font-bold">{t}</h3><p className="mt-3 text-sm leading-6 text-[#bfd1ce]">{d}</p></article>)}</div></div></section>
+    <section id="partners" className="hidden px-8 py-20 md:block"><div className="mx-auto grid max-w-7xl grid-cols-[.8fr_1.2fr] gap-20"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-[#a3772f]">Built with the ecosystem</p><h2 className="mt-3 text-4xl font-semibold tracking-tight text-[#083f3d]">Better pathways need connected partners.</h2><p className="mt-5 leading-7 text-[#5d7470]">Maritime Pathways gives schools, training providers, employers, ports, unions, workforce boards, mentors, and public agencies a shared view of the journey—from first interest through placement and advancement.</p></div><div className="grid grid-cols-2 gap-4">{[["Schools & counselors","Help students discover careers and verified next steps."],["Training providers","Connect qualified participants to credentials and apprenticeships."],["Employers & ports","Build a visible talent pipeline for hard-to-fill maritime roles."],["Community partners","Coordinate mentoring, transportation, funding, and support services."]].map(([t,d])=><article key={t} className="rounded-2xl border border-[#d7e2df] bg-white p-6"><h3 className="font-bold text-[#0b5753]">{t}</h3><p className="mt-2 text-sm leading-6 text-[#647a76]">{d}</p></article>)}</div></div></section>
+    <footer className="hidden border-t border-[#d7e2df] bg-white px-8 py-7 md:block"><div className="mx-auto flex max-w-7xl items-center justify-between text-sm text-[#637874]"><p>© 2026 Maritime Pathways</p><p>Connecting people to careers on America’s waterways.</p></div></footer>
+  </main>;
+}
